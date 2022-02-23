@@ -55,7 +55,39 @@
                             Value="PowderBlue"/>
                 </Trigger>
             </ControlTemplate.Triggers>-->
-            
+
+        </ControlTemplate>
+        <ControlTemplate TargetType="CheckBox" x:Key="estilizado">
+
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Rectangle Width="14" Height="14" Margin="2" StrokeThickness="1"
+                               Stroke="Black"  />
+                <TextBlock Margin="3" Width="12" Height="12" TextAlignment="Center"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontSize="9"  
+                           x:Name="tacha" 
+                           ></TextBlock>
+
+                <ContentPresenter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                </ContentPresenter>
+                
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter TargetName="tacha" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="tacha" Property="Text" Value="M"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="false">
+                    <Setter TargetName="tacha" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="tacha" Property="Text" Value="F"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
     <StackPanel>
@@ -64,5 +96,8 @@
         <Label >Botón redondo</Label>
         <Button x:Name="btnRedonto"  Width="80" Height="80" Template="{StaticResource BotonRedondo}">Botón 2</Button>
         <CheckBox IsChecked="{Binding ElementName=btnRedonto, Path=IsEnabled, Mode=OneWayToSource}">Botón habilitado</CheckBox>
+        <CheckBox IsChecked="False" x:Name="check" Template="{StaticResource estilizado}">Hola?</CheckBox>
+        <CheckBox IsChecked="{Binding ElementName=check,Path=IsChecked, Mode=OneWayToSource}">Enlace</CheckBox>
+
     </StackPanel>
 </Window>
