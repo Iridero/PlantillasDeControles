@@ -1,0 +1,64 @@
+﻿<Window x:Class="PlantillasDeControles.EjemploGroupBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlantillasDeControles"
+        mc:Ignorable="d"
+        Title="EjemploGroupBox" Height="250" Width="300">
+    <Window.Resources>
+        <Style x:Key="GroupBoxVerde" TargetType="GroupBox">
+            
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Background="Lime" Padding="5 5 15 5" CornerRadius="0 15 0 0">
+                            <TextBlock Foreground="White" FontSize="14" FontWeight="Bold" Text="{Binding}" />
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Setter Property="ContentTemplate" >
+                <Setter.Value>
+                    <DataTemplate >
+                        
+                        <Grid Background="Yellow">
+                            <ContentPresenter Content="{Binding}" />
+                        </Grid>
+                        
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ToggleButton">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}">
+                            <TextBlock x:Name="texto" Text="X" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+                
+            </Setter>
+            
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <GroupBox Header="Hola soy el header" Style="{StaticResource GroupBoxVerde}" >
+            <StackPanel>
+                <TextBlock>Las partes del GroupBox son 2: <LineBreak/>
+                <Italic>Header</Italic> (en la parte superior) y <LineBreak/>
+                    <Italic>Content</Italic> (en la parte inferior)
+                </TextBlock>
+                <Button x:Name="btnAceptar" Content="Aceptar" />
+                <ToggleButton>Hola
+                </ToggleButton>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

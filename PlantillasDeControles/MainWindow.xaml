@@ -98,6 +98,6 @@
         <CheckBox IsChecked="{Binding ElementName=btnRedonto, Path=IsEnabled, Mode=OneWayToSource}">Botón habilitado</CheckBox>
         <CheckBox IsChecked="False" x:Name="check" Template="{StaticResource estilizado}">Hola?</CheckBox>
         <CheckBox IsChecked="{Binding ElementName=check,Path=IsChecked, Mode=OneWayToSource}">Enlace</CheckBox>
-
+        <Button x:Name="btnAceptar" Content="Aceptar" />
     </StackPanel>
 </Window>
